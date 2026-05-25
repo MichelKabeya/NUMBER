@@ -74,6 +74,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtInput" />
 
+    <Button
+        android:id="@+id/avgBtn"
+        android:layout_width="155dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="164dp"
+        android:backgroundTint="#03518E"
+        android:fontFamily="@font/allerta"
+        android:text="AVERAGE"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtInput" />
+
     <TextView
         android:id="@+id/textMsg"
         android:layout_width="wrap_content"
