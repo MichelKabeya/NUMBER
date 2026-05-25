@@ -1,6 +1,7 @@
 package com.example.arrays
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -32,17 +33,32 @@ class MainActivity : AppCompatActivity() {
 
         // DECLARATIONS OF VARIABLES
         val text = "The array is full"
+        var total = 0
+        val avg = 0
         val fullSize = findViewById<TextView>(R.id.textMsg)
         val collect = findViewById<Button>(R.id.addBtn)
+        val average = findViewById<Button>(R.id.avgBtn)
 
+        // setting the average button invisible until array is full
+        average.visibility = View.INVISIBLE
+
+        // filling the array when the button ADD is clicked
         collect.setOnClickListener {
             //checking if the array is full
             if (counter >= numbers.size) {
                 fullSize.text = text
-                fillArray()
+                average.visibility = View.VISIBLE
             }
-
+            fillArray()
         }
+
+        counter = 0 // resetting the counter to 0
+        // calculate the average when clicked
+        average.setOnClickListener {
+            total += numbers[counter]
+            counter++
+        }
+
 
 
 
