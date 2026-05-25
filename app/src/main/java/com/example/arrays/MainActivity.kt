@@ -10,13 +10,17 @@ import androidx.core.view.WindowInsetsCompat
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
+
+    private val input = findViewById<EditText>(R.id.edtInput)
+    private val number = IntArray(10)
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        val input = findViewById<EditText>(R.id.edtInput)
+
         val collect = findViewById<Button>(R.id.addBtn)
-        val number = IntArray(10)
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
