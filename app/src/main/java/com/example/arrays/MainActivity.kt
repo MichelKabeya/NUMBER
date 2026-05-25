@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         // DECLARATIONS OF VARIABLES
         val text = "The array is full"
         var total = 0
-        val avg = 0
+        var avg = 0
         val fullSize = findViewById<TextView>(R.id.textMsg)
         val collect = findViewById<Button>(R.id.addBtn)
         val average = findViewById<Button>(R.id.avgBtn)
@@ -55,14 +55,16 @@ class MainActivity : AppCompatActivity() {
         counter = 0 // resetting the counter to 0
         // calculate the average when clicked
         average.setOnClickListener {
-            total += numbers[counter]
-            counter++
+            for (i in numbers.indices){
+                total += numbers[i]
+            }
+
+            avg = total / numbers.size
+            input.setText(avg.toString())
         }
 
 
-
-
-
+        
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
