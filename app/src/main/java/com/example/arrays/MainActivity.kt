@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val input = findViewById<EditText>(R.id.edtInput)
         val collect = findViewById<Button>(R.id.addBtn)
-       
+        val number = IntArray(10)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
