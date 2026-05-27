@@ -13,17 +13,8 @@ import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
-
     private val numbers = IntArray(10)
     private var counter = 0
-    val input: EditText = findViewById<EditText>(R.id.edtInput)
-    // getting input from the user (EditText)
-    val value = input.text.toString().toInt()
-    fun fillArray(){
-        numbers[counter] = value
-        counter++
-    }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +23,12 @@ class MainActivity : AppCompatActivity() {
 
 
         // DECLARATIONS OF VARIABLES
-        val text = "The array is full"
-        var total = 0
-        var avg = 0
+        val input = findViewById<EditText>(R.id.edtInput)
         val fullSize = findViewById<TextView>(R.id.textMsg)
         val collect = findViewById<Button>(R.id.addBtn)
         val average = findViewById<Button>(R.id.avgBtn)
+
+        val text = "The array is full"
 
         // setting the average button invisible until array is full
         average.visibility = View.INVISIBLE
@@ -48,20 +39,33 @@ class MainActivity : AppCompatActivity() {
             if (counter >= numbers.size) {
                 fullSize.text = text
                 average.visibility = View.VISIBLE
-            }
-            fillArray()
+                return@setOnClickListener
         }
 
-        counter = 0 // resetting the counter to 0
+            // Read user input safely
+            val value = input.text.toString().toIntOrNull()
+
+            if (value != null) {
+                numbers[counter] = value
+                counter++
+                input.text.clear()
+            } else {
+                fullSize.text = "Enter a valid number"
+            }
+        }
         // calculate the average when clicked
         average.setOnClickListener {
-            for (i in numbers.indices){
+            var total = 0
+
+            for (i in numbers.indices) {
                 total += numbers[i]
             }
 
-            avg = total / numbers.size
+            val avg = total / numbers.size
+
             input.setText(avg.toString())
         }
+
 
 
 
