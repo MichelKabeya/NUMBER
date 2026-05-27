@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             if (counter >= numbers.size) {
                 fullSize.text = text
                 average.visibility = View.VISIBLE
+                collect.visibility = View.INVISIBLE
                 return@setOnClickListener
         }
 
